@@ -11,8 +11,9 @@ class GenerateTable():
             self.tables[table].append(par)
         
     
-    def ValuesAdd(self, parametros):
+    def add(self, *parametros):
         table = self.nameTable
+        parametros = list(parametros)
 
         count = 0
 
@@ -30,7 +31,7 @@ class GenerateTable():
         self.info[table].append(val)
 
 
-    def ValuesMerge(self):
+    def merge(self):
         table = self.nameTable
 
         result = ""
@@ -52,7 +53,7 @@ class GenerateTable():
                 item = tab[item]
 
 
-                if len(item) > tablesLen[itemv]:
+                if len(str(item)) > tablesLen[itemv]:
                     tablesLen[itemv] = len(item)
 
     
@@ -95,19 +96,17 @@ class GenerateTable():
 
             for item in valores:
 
-                tlen = len(valores[item])
+                tlen = len(str(valores[item]))
                 lenCount = tablesLen[item] - tlen
                 spacelen = " "*lenCount
 
                 if count != countFinal:
-                    result += "| " + valores[item] + spacelen + " "
+                    result += "| " + str(valores[item]) + spacelen + " "
                 else:
-                    result += "| " + valores[item] + spacelen + " |\n"
+                    result += "| " + str(valores[item]) + spacelen + " |\n"
 
                 count += 1
 
         result += "-"*len(stringd)+"\n"
 
         return result
-
-
