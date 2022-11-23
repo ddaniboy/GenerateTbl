@@ -1,25 +1,22 @@
 class GenerateTable():
-    def __init__(self, table, parametros):
+    def __init__(self, *parametros):
+        table = "newTable"
         self.nameTable = table
-        self.tables = {}
-        self.info = {}
-
-        self.tables[table] = []
-        self.info[table] = []
+        self.table = []
+        self.info = []
         
         for par in parametros:
-            self.tables[table].append(par)
+            self.table.append(par)
         
     
     def add(self, *parametros):
-        table = self.nameTable
         parametros = list(parametros)
 
         count = 0
 
         val = {}
 
-        for item in self.tables[table]:
+        for item in self.table:
             try:
                 val[item] = parametros[count]
                 count += 1
@@ -28,7 +25,7 @@ class GenerateTable():
                 count += 1
                 
 
-        self.info[table].append(val)
+        self.info.append(val)
 
 
     def merge(self):
@@ -39,11 +36,11 @@ class GenerateTable():
         stringd = ""
         count = 0
 
-        values = self.info[table]
+        values = self.info
 
         tablesLen = {}
 
-        for tab in self.tables[table]:
+        for tab in self.table:
             tablesLen[tab] = len(tab)
 
         for tab in values:
@@ -60,10 +57,10 @@ class GenerateTable():
                 
         
 
-        for item in self.tables[table]:
+        for item in self.table:
 
 
-            tlen = len(self.tables[table])-1
+            tlen = len(self.table)-1
 
             tblen = len(item)
 
