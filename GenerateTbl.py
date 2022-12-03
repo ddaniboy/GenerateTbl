@@ -28,6 +28,9 @@ class GenerateTable():
         self.info.append(val)
 
 
+    def count(self):
+        return len(self.info)
+
     def merge(self):
         table = self.nameTable
 
