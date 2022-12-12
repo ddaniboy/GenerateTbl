@@ -31,6 +31,9 @@ class GenerateTable():
     def count(self):
         return len(self.info)
 
+    def getItems(self):
+        return self.info
+
     def merge(self):
         table = self.nameTable
 
@@ -110,3 +113,4 @@ class GenerateTable():
         result += "-"*len(stringd)+"\n"
 
         return result
+    
