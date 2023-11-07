@@ -26,6 +26,9 @@ class GenerateTable():
 
         self.info.append(val)
 
+    def remove(self, line):
+        self.info.pop(line)
+
     def count(self):
         return len(self.info)
 
@@ -119,8 +122,6 @@ class GenerateTable():
 
         return result
 
-
-
     def merge(self):
         table = self.nameTable
 
@@ -196,4 +197,4 @@ class GenerateTable():
         result += "-"*len(stringd)+"\n"
 
         return result
-        
+
