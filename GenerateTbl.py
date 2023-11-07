@@ -8,7 +8,6 @@ class GenerateTable():
         for par in parametros:
             self.table.append(par)
         
-    
     def add(self, *parametros):
         parametros = list(parametros)
 
@@ -27,12 +26,100 @@ class GenerateTable():
 
         self.info.append(val)
 
-
     def count(self):
         return len(self.info)
 
     def getItems(self):
         return self.info
+
+    def clear(self):
+        self.info = []
+
+    def getline(self, line):
+        return self.info[line]
+
+    def mergeline(self, line):
+        table = self.nameTable
+
+        result = ""
+
+        stringd = ""
+        count = 0
+
+        values = self.info[line]
+
+        tablesLen = {}
+
+        for tab in self.table:
+            tablesLen[tab] = len(tab)
+            
+
+
+        for item in values:
+            itemv = item
+
+            item = values[item]
+
+
+            if len(str(item)) > tablesLen[itemv]:
+                tablesLen[itemv] = len(item)
+
+    
+                
+        
+
+        for item in self.table:
+
+
+            tlen = len(self.table)-1
+
+            tblen = len(item)
+
+            tblen = tablesLen[item] - tblen
+
+            
+
+            spaceLen = " "*tblen
+
+            if tlen != count:
+                stringd += "| " + item +spaceLen+ " "
+            else:
+                stringd += "| " + item +spaceLen+ " |"
+
+            count += 1
+
+        result += "_"*len(stringd)+"\n"
+        result += stringd+"\n"
+        result += "-"*len(stringd)+"\n"
+
+
+
+
+
+
+        valores = values
+
+        count = 0
+        countFinal = len(valores)-1
+
+        for item in valores:
+
+            tlen = len(str(valores[item]))
+            lenCount = tablesLen[item] - tlen
+            spacelen = " "*lenCount
+
+            if count != countFinal:
+                result += "| " + str(valores[item]) + spacelen + " "
+            else:
+                result += "| " + str(valores[item]) + spacelen + " |\n"
+
+            count += 1
+
+        result += "-"*len(stringd)+"\n"
+
+        return result
+
+
 
     def merge(self):
         table = self.nameTable
@@ -88,10 +175,6 @@ class GenerateTable():
         result += "-"*len(stringd)+"\n"
 
 
-
-
-
-
         for valores in values:
 
             count = 0
@@ -113,4 +196,4 @@ class GenerateTable():
         result += "-"*len(stringd)+"\n"
 
         return result
-    
+        
