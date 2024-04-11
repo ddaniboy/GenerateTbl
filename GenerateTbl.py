@@ -10,10 +10,9 @@ class GenerateTable():
         
     def add(self, *parametros):
         parametros = list(parametros)
-
         count = 0
-
         val = {}
+        
 
         for item in self.table:
             try:
@@ -22,10 +21,10 @@ class GenerateTable():
             except:
                 val[item] = ""
                 count += 1
-                
-
+            
         self.info.append(val)
 
+    
     def remove(self, line):
         self.info.pop(line)
 
@@ -43,45 +42,26 @@ class GenerateTable():
 
     def mergeline(self, line):
         table = self.nameTable
-
         result = ""
-
         stringd = ""
         count = 0
-
         values = self.info[line]
-
         tablesLen = {}
 
         for tab in self.table:
             tablesLen[tab] = len(tab)
-            
-
 
         for item in values:
             itemv = item
-
             item = values[item]
-
 
             if len(str(item)) > tablesLen[itemv]:
                 tablesLen[itemv] = len(item)
 
-    
-                
-        
-
         for item in self.table:
-
-
             tlen = len(self.table)-1
-
             tblen = len(item)
-
             tblen = tablesLen[item] - tblen
-
-            
-
             spaceLen = " "*tblen
 
             if tlen != count:
@@ -95,16 +75,10 @@ class GenerateTable():
         result += stringd+"\n"
         result += "-"*len(stringd)+"\n"
 
-
-
-
-
-
         valores = values
 
         count = 0
         countFinal = len(valores)-1
-
         for item in valores:
 
             tlen = len(str(valores[item]))
@@ -124,14 +98,10 @@ class GenerateTable():
 
     def merge(self):
         table = self.nameTable
-
         result = ""
-
         stringd = ""
         count = 0
-
         values = self.info
-
         tablesLen = {}
 
         for tab in self.table:
@@ -152,16 +122,9 @@ class GenerateTable():
         
 
         for item in self.table:
-
-
             tlen = len(self.table)-1
-
             tblen = len(item)
-
             tblen = tablesLen[item] - tblen
-
-            
-
             spaceLen = " "*tblen
 
             if tlen != count:
