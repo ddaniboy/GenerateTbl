@@ -1,3 +1,5 @@
+# what is it?
+A simple tool to generate tables in terminal for more organized results.
 
 # How To Use?
 
